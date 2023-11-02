@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import { Dimensions, Text } from 'react-native';
 import { Container, Title, Description, Image, Content, Steps, Step, ButtonNext, ButtonText, Buttons, Button } from './style'
 import { OnBoardingSlides } from '../../Services/OnboardingSlides';
-import image1 from '../../../assets/image1.png';
 
 
-export default function OnBoarding() {
+export default function OnBoarding({navigation}) {
 
   const [onBoardingStep, setOnBoardingStep] = useState(0);
 
   nextStep = () =>{
     if(onBoardingStep < 2){
       setOnBoardingStep((prev) => prev + 1)
+    }else if(onBoardingStep == 2){
+      navigation.navigate('Home')
     }
   }
 
